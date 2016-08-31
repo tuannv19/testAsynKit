@@ -50,13 +50,13 @@ class HomeCellNode: ASCellNode {
         
         
         let  titleInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(2, 2, 2, 2), child: titleLabel)
-        let vStackLayoutSpec = ASStackLayoutSpec(direction: .Vertical, spacing: 3, justifyContent: .Center, alignItems: .End, children: [titleLabel , titleInsetSpec])
+        let vStackLayoutSpec = ASStackLayoutSpec(direction: .Vertical, spacing: 3, justifyContent: .Center, alignItems: .End, children: [titleInsetSpec,timeLabel])
         
         
         thumbnailImage.preferredFrameSize = CGSizeMake(80, 80)
         
         let thumbnailInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(2, 2, 2, 2), child: thumbnailImage)
-        
+        vStackLayoutSpec.flexShrink = true
         let hStackLayoutSpec = ASStackLayoutSpec(direction: .Horizontal, spacing: 2, justifyContent: .Start, alignItems: .Start, children: [thumbnailInsetSpec, vStackLayoutSpec])
         
         return hStackLayoutSpec
